@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "pharmacyName": "Al Safa",
+    "licenseNumber": "456987",
+    "ownerName": "Khalid",
+    "email": "khalid@gmail.com",
+    "phone": "+971 523645978",
+    "password": "12345678",
+    "submittedAt": "1:48:01 PM"
+  },
+  {
+    "id": 2,
+    "pharmacyName": "New bie",
+    "licenseNumber": "45669874",
+    "ownerName": "Khalid",
+    "email": "samavar@gmail.com",
+    "phone": "+971 569874562",
+    "password": "12345678",
+    "submittedAt": "2:34:30 PM"
+  },
+  {
+    "id": 3,
+    "pharmacyName": "Ahmed",
+    "licenseNumber": "456789",
+    "ownerName": "ahmed",
+    "email": "ahmed@gmail.com",
+    "phone": "+971 578945612",
+    "password": "12345678",
+    "submittedAt": "2:38:50 PM"
+  }
+]
