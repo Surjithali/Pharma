@@ -1,0 +1,57 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id             String   @id @default(uuid())
+  pharmacy_name  String
+  license_number String
+  owner_name     String
+  email          String   @unique
+  phone          String
+  password_hash  String
+  role           String   @default("partner")
+  status         String   @default("active")
+  created_at     DateTime @default(now())
+  orders         Order[]
+}
+
+model Profile {
+  id                   String   @id
+  pharmacy_name        String?
+  email                String?
+  role                 String   @default("sub_admin")
+  can_manage_orders    Boolean  @default(true)
+  can_manage_inventory Boolean  @default(false)
+  status               String   @default("approved")
+  created_at           DateTime @default(now())
+}
+
+model Product {
+  id              String   @id @default(uuid())
+  name            String
+  category        String   @default("General Medicine")
+  price           Float
+  wholesale_price Float
+  stock           Int      @default(100)
+  emoji           String   @default("??")
+  description     String?
+  manufacturer    String?
+  unit            String   @default("Box")
+  created_at      DateTime @default(now())
+}
+
+model Order {
+  id           String   @id @default(uuid())
+  user_id      String
+  user         User     @relation(fields: [user_id], references: [id])
+  items        String
+  total_amount Float
+  status       String   @default("pending")
+  created_at   DateTime @default(now())
+}
