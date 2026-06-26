@@ -8,21 +8,30 @@ generator client {
 }
 
 model User {
-  id             String   @id @default(uuid())
+  id             String    @id @default(uuid())
   pharmacy_name  String
   license_number String
   owner_name     String
-  email          String   @unique
+  email          String    @unique
   phone          String
   password_hash  String
-  role           String   @default("partner")
-  status         String   @default("active")
-  created_at     DateTime @default(now())
+  role           String    @default("partner")
+  status         String    @default("active")
+  created_at     DateTime  @default(now())
   orders         Order[]
+  
+  // 1. ADDED: This tells Prisma a User can have Profile(s)
+  profiles       Profile[] 
 }
 
 model Profile {
-  id                   String   @id
+  // Added @default(uuid()) so it auto-generates IDs like your other models
+  id                   String   @id @default(uuid()) 
+  
+  // 2. ADDED: The connection back to the User model
+  user_id              String   
+  user                 User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  
   pharmacy_name        String?
   email                String?
   role                 String   @default("sub_admin")

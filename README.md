@@ -52,3 +52,16 @@ npx prisma db push
 
 # Generate the local Prisma Client
 npx prisma generate
+
+
+
+
+# Basic
+# 1. Recreate the node_modules folder tailored to the new system
+npm install
+
+# 2. Generate the local Prisma Client types based on your schema
+npx prisma generate
+
+# 3. Spin up your Next.js development server fresh
+npm run dev
