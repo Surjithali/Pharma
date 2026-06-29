@@ -49,19 +49,21 @@ DATABASE_URL="file:./dev.db"
 
 # Push your database schema and create the local file
 npx prisma db push
+npx prisma generate
+
 
 # Generate the local Prisma Client
 npx prisma generate
 
 
-
-
-# Basic
-# 1. Recreate the node_modules folder tailored to the new system
 npm install
+(1. Run  'npm approve-scripts')
+(2. Run 'npm approve-scripts --all')
 
-# 2. Generate the local Prisma Client types based on your schema
+npx prisma db push
+
 npx prisma generate
 
-# 3. Spin up your Next.js development server fresh
 npm run dev
+
+
